@@ -8,15 +8,44 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@vite-pwa/nuxt',
     '@vueuse/nuxt',
-    'nuxt-api-party',
     '@nuxt/fonts',
+    '@nuxt/image',
   ],
 
   devtools: {
     enabled: true,
   },
 
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/pokemon.css',
+    '~/assets/css/rickandmorty.css',
+    '~/assets/css/main.css',
+  ],
+
+  colorMode: {
+    // Cast to `any` to allow 'modes' property
+    ...({
+      preference: 'system',
+      fallback: 'light',
+      classSuffix: '',
+      modes: {
+        light: '',
+        dark: '',
+        pokemon: 'pokemon',
+        rickandmorty: 'rickandmorty',
+      },
+    } as any),
+  },
+
+  runtimeConfig: {
+    public: {
+      apiBase: '/api',
+      universe: {
+        pokemon: 'https://pokeapi.co/api/v2/pokemon',
+        rickandmorty: 'https://rickandmortyapi.com/api/character',
+      },
+    },
+  },
 
   future: {
     compatibilityVersion: 4,
@@ -39,17 +68,6 @@ export default defineNuxtConfig({
     },
   },
 
-  apiParty: {
-    endpoints: {
-      pokemon: {
-        url: 'https://pokeapi.co/api/v2',
-      },
-      rickAndMorty: {
-        url: 'https://rickandmortyapi.com/api',
-      },
-    },
-  },
-
   eslint: {
     config: {
       standalone: false,
@@ -61,6 +79,10 @@ export default defineNuxtConfig({
 
   icon: {
     provider: 'iconify',
+  },
+
+  pinia: {
+    storesDirs: ['./stores/**'],
   },
 
   pwa,

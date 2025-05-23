@@ -1,0 +1,6 @@
+{
+  "universe": "rickandmorty",
+  "css_colormode": "rickandmorty",
+  "itemsProperty": "results",
+  "imagetemplate": "https://rickandmortyapi.com/api/character/avatar/${id}.jpeg"
+}

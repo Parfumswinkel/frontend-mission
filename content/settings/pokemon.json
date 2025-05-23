@@ -1,0 +1,6 @@
+{
+  "universe": "pokemon",
+  "css_colormode": "pokemon",
+  "itemsProperty": "results",
+  "imagetemplate": "https://img.pokemondb.net/artwork/${name}.jpg"
+}

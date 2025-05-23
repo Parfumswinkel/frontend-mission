@@ -3,7 +3,7 @@ const colorMode = useColorMode()
 
 const isDark = computed({
   get() {
-    return colorMode.value === 'dark'
+    return colorMode.value === colorMode.preference
   },
   set() {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
@@ -19,7 +19,6 @@ const isDark = computed({
       variant="ghost"
       @click="isDark = !isDark"
     />
-
     <template #fallback>
       <div class="size-8" />
     </template>
